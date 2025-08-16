@@ -1,0 +1,52 @@
+#provider variables
+aws-tags = {
+  Project   = "snowflake"
+  Owner     = "xxx"
+  Terraform = "true"
+}
+
+snowflake-organization-name = "xxx"
+snowflake-account-name      = "xxx"
+snowflake-user              = "xxx"
+snowflake-password          = "xxx*"
+snowflake-role              = "xxx"
+
+#iam
+snowflake-role-name      = "snowflake-role"
+s3-replication-role-name = "s3-replication-role"
+
+#s3
+s3-data-bucket-name   = "project-snowflake-data"
+s3-backup-bucket-name = "project-snowflake-data-backup"
+s3-audit-bucket-name  = "project-snowflake-data-audit"
+
+bucket-sse-algorithm    = "AES256"
+bucket-versioning       = "Enabled"
+
+bucket-block-public-acls   = true
+bucket-block-public-policy = true
+bucket-ignore-public-acls  = true
+restrict-public-buckets    = true
+
+bucket-replication-rule          = "Enabled"
+bucket-replication-storage-class = "INTELLIGENT_TIERING"
+
+bucket-logging-destination = "log/"
+
+bucket-inventory-configuration-name           = "project-snowflake-data-bucket-inventory"
+bucket-inventory-configuration-object-version = "All"
+bucket-inventory-configuration-frequency      = "Daily"
+bucket-inventory-configuration-output-format  = "CSV"
+bucket-inventory-configuration-destination    = "inventory-configuration-report/"
+
+#snowflake
+snowflake-external-id              = "xxx"
+snowflake-warehouse-name           = "project-snowflake-warehouse"
+snowflake-warehouse-size           = "XSMALL"
+snowflake-database-name            = "my-database"
+snowflake-schema-name              = "my-schema"
+snowflake-sequence-name            = "my-schema"
+snowflake-table-name               = "my-table"
+snowflake-storage-integration-name = "my-storage-integration"
+snowflake-stage-name               = "my-stage"
+snowflake-storage-provider         = "S3"
