@@ -19,9 +19,37 @@ resource "aws_iam_role" "snowflake" {
   })
 }
 
-resource "aws_iam_role_policy_attachment" "s3-read" {
+resource "aws_iam_policy" "s3-snowflake" {
+
+  policy = jsonencode({
+    Version = "2012-10-17",
+    Statement = [
+      {
+        Effect = "Allow",
+        Action = [
+          "s3:PutObject",
+          "s3:GetObject",
+          "s3:GetObjectVersion",
+          "s3:DeleteObject",
+          "s3:DeleteObjectVersion"
+        ],
+        Resource = "arn:aws:s3:::${var.s3-data-bucket-name}/*"
+      },
+      {
+        Effect = "Allow",
+        Action = [
+          "s3:ListBucket",
+          "s3:GetBucketLocation"
+        ],
+        Resource = "arn:aws:s3:::${var.s3-data-bucket-name}"
+      }
+    ]
+  })
+}
+
+resource "aws_iam_role_policy_attachment" "s3-snowflake" {
   role       = aws_iam_role.snowflake.name
-  policy_arn = "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess"
+  policy_arn = aws_iam_policy.s3-snowflake.arn
 }
 
 resource "aws_iam_role" "s3-replication" {
