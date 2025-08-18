@@ -21,7 +21,7 @@ Terraform is used to provision all pieces of the infrastructure:
 <br>
 
 ## Directory Structure:
-
+```
 ./
 ├── airflow/
 ├── assets/
@@ -37,6 +37,7 @@ Terraform is used to provision all pieces of the infrastructure:
 │         └── snowflake/
 ├── docker-compose.yml
 └── Makefile
+```
 
 - `airflow/` - contains all Airflow specific files (DAGs, config and any custom plugins)
 - `assets/` - stores datasets used by the pipeline i.e raw CSV and the transformed outputs
@@ -59,6 +60,8 @@ Before you start, make sure you have the following installed on your machine:
 - **AWS CLI** (Version 2 and above)
 - **AWS account with admin access** (to avoid any issues relating to permissions)
 - **Snowflake account**
+
+<br>
 
 If you do not have a Snowflake account:
 
@@ -132,6 +135,7 @@ Leave every other variable unchanged.
 
 ### 3. Start Airflow
 
+Run:
 ```bash
 make airflow-start
 ```
@@ -233,7 +237,7 @@ These queries will allow you to verify that the data has been loaded successfull
 
 ---
 
-### 8. Teardown infrastructure and remove containers
+### 8. Teardown infrastructure
 
 Once you are done and want to clean up everything:
 
