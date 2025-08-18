@@ -18,51 +18,41 @@ def transform_data(
     df = pd.read_csv(input_path, dtype=str)
     original_count = len(df)
     
-    # Clean: remove empty rows, strip whitespace
     df = df.dropna(how='all')
     df = df.applymap(lambda x: x.strip() if isinstance(x, str) else x)
     
-    # Validate: required columns
     if required_columns:
         df = df.dropna(subset=required_columns)
     
-    # Validate: email
     if 'email' in df.columns:
         df = df[df['email'].apply(validate_email)]
     
-    # Normalise: text
     for col in df.select_dtypes(include=['object']).columns:
         df[col] = df[col].str.title().str.replace(r'\s+', ' ', regex=True)
     
-    # Type cast: dates
     if date_columns:
         for dcol in date_columns:
             if dcol in df.columns:
                 df[dcol] = pd.to_datetime(df[dcol], errors='coerce')
         df = df.dropna(subset=[c for c in date_columns if c in df.columns])
     
-    # Validate: numeric ranges
     if numeric_columns:
         for ncol, (min_val, max_val) in numeric_columns.items():
             if ncol in df.columns:
                 df[ncol] = pd.to_numeric(df[ncol], errors='coerce')
                 df[ncol] = df[ncol].clip(lower=min_val, upper=max_val)
     
-    # Normalise: categorical
     if categorical_columns:
         for ccol, mapping in categorical_columns.items():
             if ccol in df.columns:
                 df[ccol] = df[ccol].map(mapping).fillna(df[ccol])
     
-    # Derived calculations
     if derived_columns:
         for new_col, formula in derived_columns.items():
             df[new_col] = df.eval(formula)
     
-    # Remove duplicates
     df = df.drop_duplicates()
     
-    # Prune rows with too many missing values
     allowed_missing = int(len(df.columns) * max_missing_ratio)
     df = df[df.apply(lambda x: x.count() >= len(df.columns) - allowed_missing, axis=1)]
     
