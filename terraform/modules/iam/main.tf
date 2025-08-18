@@ -7,7 +7,7 @@ resource "aws_iam_role" "snowflake" {
         Effect = "Allow"
         Action = "sts:AssumeRole"
         Principal = {
-          AWS = ["202291439248"]
+          AWS = [var.snowflake-aws-account-id]
         }
         Condition = {
           StringEquals = {

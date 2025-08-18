@@ -2,6 +2,7 @@ module "iam" {
  source                      = "./modules/iam"
 
  snowflake-role-name         = var.snowflake-role-name
+ snowflake-aws-account-id    = var.snowflake-aws-account-id
  snowflake-external-id       = var.snowflake-external-id
 
  s3-replication-role-name    = var.s3-replication-role-name
