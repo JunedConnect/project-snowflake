@@ -45,6 +45,11 @@ variable "s3-replication-role-name" {
 
 #snowflake
 
+variable "snowflake-aws-account-id" {
+  description = "aws account-id of snowflake account"
+  type        = string
+}
+
 variable "snowflake-external-id" {
   description = "external-id of snowflake integration"
   type        = string
@@ -54,7 +59,7 @@ variable "snowflake-external-id" {
 variable "snowflake-warehouse-name" {
   description = "Name of Snowflake Warehouse"
   type        = string
-  default     = "project-snowflake-warehouse"
+  default     = "my-warehouse"
 }
 
 variable "snowflake-warehouse-size" {
@@ -112,7 +117,7 @@ variable "snowflake-storage-provider" {
 variable "s3-data-bucket-name" {
   description = "Name of S3 Data Bucket"
   type        = string
-  default     = "project-snowflake-data"
+  default     = "project-snowflake-data-main"
 }
 
 variable "s3-backup-bucket-name" {

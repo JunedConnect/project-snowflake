@@ -1,22 +1,22 @@
 #provider variables
 aws-tags = {
   Project   = "snowflake"
-  Owner     = "xxx"
+  Owner     = "[provide value here]"
   Terraform = "true"
 }
 
-snowflake-organization-name = "xxx"
-snowflake-account-name      = "xxx"
-snowflake-user              = "xxx"
-snowflake-password          = "xxx*"
-snowflake-role              = "xxx"
+snowflake-organization-name = "[provide value here]"
+snowflake-account-name      = "[provide value here]"
+snowflake-user              = "[provide value here]"
+snowflake-password          = "[provide value here]"
+snowflake-role              = "[provide value here]"
 
 #iam
 snowflake-role-name      = "snowflake-role"
 s3-replication-role-name = "s3-replication-role"
 
 #s3
-s3-data-bucket-name   = "project-snowflake-data"
+s3-data-bucket-name   = "project-snowflake-data-main"
 s3-backup-bucket-name = "project-snowflake-data-backup"
 s3-audit-bucket-name  = "project-snowflake-data-audit"
 
@@ -40,7 +40,8 @@ bucket-inventory-configuration-output-format  = "CSV"
 bucket-inventory-configuration-destination    = "inventory-configuration-report/"
 
 #snowflake
-snowflake-external-id              = "xxx"
+snowflake-aws-account-id           = "[provide value here]"
+snowflake-external-id              = "[provide value here]"
 snowflake-warehouse-name           = "project-snowflake-warehouse"
 snowflake-warehouse-size           = "XSMALL"
 snowflake-database-name            = "my-database"

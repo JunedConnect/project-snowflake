@@ -1,4 +1,4 @@
-USE WAREHOUSE "project-snowflake-warehouse";
+USE WAREHOUSE "my-warehouse";
 USE DATABASE "my-database";
 USE SCHEMA "my-schema";
 

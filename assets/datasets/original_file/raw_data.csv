@@ -1,7 +1,16 @@
 order_id,customer_id,customer_name,email,product_id,product_name,order_date,price,quantity,total_amount
 1001,C001,John Doe,john@example.com,P001,Widget A,2023-01-15,19.99,2,39.98
 1002,C002,Jane Smith,jane@example.com,P002,Widget B,2023-01-16,29.99,1,29.99
-1003,C001,Bob Lee,bob@example.com,P001,Widget A,2023-01-17,19.99,5,99.95
+1003,C004,Bob Lee,bob@example.com,P001,Widget A,2023-01-17,19.99,5,99.95
 1004,C003,Alice Jones,alice@example.com,P003,Widget C,2023-01-18,39.99,3,119.97
-1005,C002,Mark Davis,mark@example.com,P002,Widget B,2023-01-19,29.99,4,119.96
-1006,C002,test test,test@example.com,P002,Widget B,2023-01-19,29.99,4,119.96
+1005,C005,Mark Davis,mark@example.com,P002,Widget B,2023-01-19,29.99,4,119.96
+
+# Added messy/bad rows for testing
+1006,C006,,missing_email,P004,Widget D,2023-01-20,49.99,1,49.99
+1007,,Anonymous,anon@example.com,P005,Widget E,2023/01/21,59.99,2,119.98
+1008,C007,Chris  Green,chris@example.com,P006, Widget F ,invalid_date,39.99,1,39.99
+1009,C008,Kelly White,kelly@example.com,P007,Widget G,2023-01-22,not_a_number,3,119.97
+1010,C009,Sam Blue,sam@example.com,P008,Widget H,2023-01-23,29.99,0,
+1011,C010, ,blank@example.com,P009,Widget I,2023-01-24,19.99,1,19.99
+1012,C011,Pat Red,pat@example.com,P010,Widget J,2023-01-25,29.99,2,59.98
+,, , , , , , , , 

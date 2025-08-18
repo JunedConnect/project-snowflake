@@ -3,15 +3,19 @@ variable "snowflake-role-name" {
   type        = string
 }
 
+variable "snowflake-aws-account-id" {
+  description = "aws account-id of snowflake account"
+  type        = string
+}
+
 variable "snowflake-external-id" {
-  description = "external-id of snowflake integration"
+  description = "external-id of snowflake"
   type        = string
 }
 
 variable "s3-replication-role-name" {
   description = "Name of S3 replication role"
   type        = string
-  default     = "s3-replication-role"
 }
 
 variable "s3-data-bucket-name" {

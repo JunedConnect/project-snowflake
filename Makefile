@@ -5,7 +5,7 @@ airflow-start:
 	@echo "Starting Airflow containers..."
 	docker compose -f ./docker-compose.yml up -d
 	@echo "Airflow containers started successfully!"
-	@echo "Follow logs with: make airflow-logs"
+	@echo "Use the following command to see logs: make airflow-logs"
 
 # Stop Airflow container (preserves volumes)
 airflow-stop:
