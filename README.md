@@ -1,11 +1,13 @@
 # Project Snowflake
 
 
-A deployment of workflow management tool (Airflow) that will automate an ETL pipeline;
+A deployment of workflow management tool (Airflow) that will automate an ETL pipeline:
 
 - Extraction and Transformation raw CSV data into structured data
 - Upload to a data-lake (AWS S3 Bucket)
 - Load into a Snowflake Database and processed by a Data Warehouse into structured tables
+
+<br>
 
 Terraform is used to provision all pieces of the infrastructure:
 
@@ -17,6 +19,7 @@ Terraform is used to provision all pieces of the infrastructure:
 
 ## Architecture Diagram:
 
+![AD](https://raw.githubusercontent.com/JunedConnect/project-snowflake/main/images/architecture-diagram.png)
 
 <br>
 
@@ -45,6 +48,8 @@ Terraform is used to provision all pieces of the infrastructure:
 - `terraform/` - includes all Terraform code to provision AWS and Snowflake resources
 - `docker-compose.yml` - defines the Docker services needed to run the project locally
 - `Makefile` - provides command shortcuts for Docker
+
+<br>
 
 <br>
 
