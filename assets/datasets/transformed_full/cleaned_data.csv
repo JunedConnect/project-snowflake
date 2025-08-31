@@ -1,0 +1,10 @@
+order_id,customer_id,customer_name,email,product_id,product_name,order_date,price,quantity,total_amount
+1001,C001,John Doe,John@Example.Com,P001,Widget A,2023-01-15,19.99,2,39.98
+1002,C002,Jane Smith,Jane@Example.Com,P002,Widget B,2023-01-16,29.99,1,29.99
+1003,C004,Bob Lee,Bob@Example.Com,P001,Widget A,2023-01-17,19.99,5,99.94999999999999
+1004,C003,Alice Jones,Alice@Example.Com,P003,Widget C,2023-01-18,39.99,3,119.97
+1005,C005,Mark Davis,Mark@Example.Com,P002,Widget B,2023-01-19,29.99,4,119.96
+1009,C008,Kelly White,Kelly@Example.Com,P007,Widget G,2023-01-22,,3,
+1010,C009,Sam Blue,Sam@Example.Com,P008,Widget H,2023-01-23,29.99,0,0.0
+1011,C010,,Blank@Example.Com,P009,Widget I,2023-01-24,19.99,1,19.99
+1012,C011,Pat Red,Pat@Example.Com,P010,Widget J,2023-01-25,29.99,2,59.98

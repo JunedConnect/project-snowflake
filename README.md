@@ -1,11 +1,16 @@
-# Project Snowflake
+# TransformOps
 
 
-A deployment of workflow management tool (Airflow) that will automate an ETL pipeline:
+A deployment of workflow management tool (Apache Airflow) that will automate an ETL pipeline:
 
-- Extraction and Transformation raw CSV data into structured data
-- Upload to a data-lake (AWS S3 Bucket)
-- Load into a Snowflake Database and processed by a Data Warehouse into structured tables
+- Extraction and Transformation of raw CSV data into structured data
+    Transformation pipeline includes:
+    - **Clean**: remove empty rows, strip whitespace, drop duplicates, handle missing values
+    - **Validate**: enforce required fields, check email formats, verify dates and numeric ranges
+    - **Normalise**: standardise text formatting, map categorical values, derive calculated fields
+    - **Partition**: split data into logical tables for efficient querying
+- Upload of transformed data to a secured data-lake (AWS S3 Bucket)
+- Load data from data-lake into a Snowflake Database and processing by a Data Warehouse into structured tables
 
 <br>
 
@@ -13,7 +18,13 @@ Terraform is used to provision all pieces of the infrastructure:
 
 - Modules and variable-driven configuration to follow the DRY principle
 - Tightly scoped IAM policies for secure access control
-- S3 buckets configured with security and redundancy in mind
+- S3 buckets configured with security and redundancy in mind:
+    - Server-side encryption with AES256 to protect data-at-rest
+    - Versioning enabled for recovery against accidental deletes or overwrites
+    - Strict public access blocking to prevent unauthorised access
+    - Cross-bucket replication to a backup bucket with intelligent tiering for redundancy
+    - Audit logging stored in a dedicated bucket for traceability
+    - Daily inventory reports for visibility into stored objects and compliance
 
 <br>
 
@@ -102,7 +113,7 @@ Replace the `[provide value here]` placeholder in `.env` with your Snowflake / A
 | `SNOWFLAKE_USER` | Your Snowflake username |
 | `SNOWFLAKE_PASSWORD` | Your Snowflake password |
 | `SNOWFLAKE_ACCOUNT` | Your Snowflake account identifier |
-| `SNOWFLAKE_ROLE` | You Snowflake role used by **Airflow** (e.g. `ACCOUNTADMIN`) |
+| `SNOWFLAKE_ROLE` | Your Snowflake role used by **Airflow** (e.g. `ACCOUNTADMIN`) |
 | `AWS_ACCESS_KEY_ID` | AWS access key ID |
 | `AWS_SECRET_ACCESS_KEY` | AWS secret key |
 
@@ -120,7 +131,7 @@ Replace the `[provide value here]` placeholder with your Snowflake credentials:
 | `snowflake-account-name` | Your Snowflake account name |
 | `snowflake-user` | Your Snowflake username |
 | `snowflake-password` | Your Snowflake password |
-| `snowflake-role` | You Snowflake role used by **Terraform** (e.g. `ACCOUNTADMIN`) |
+| `snowflake-role` | Your Snowflake role used by **Terraform** (e.g. `ACCOUNTADMIN`) |
 | `snowflake-external-id` | You can enter any random string here |
 | ❗ `snowflake-aws-account-id` ❗ | Your Snowflake AWS account ID |
 

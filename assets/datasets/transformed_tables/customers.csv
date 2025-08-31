@@ -1,0 +1,10 @@
+customer_id,customer_name,email
+C001,John Doe,John@Example.Com
+C002,Jane Smith,Jane@Example.Com
+C004,Bob Lee,Bob@Example.Com
+C003,Alice Jones,Alice@Example.Com
+C005,Mark Davis,Mark@Example.Com
+C008,Kelly White,Kelly@Example.Com
+C009,Sam Blue,Sam@Example.Com
+C010,,Blank@Example.Com
+C011,Pat Red,Pat@Example.Com
