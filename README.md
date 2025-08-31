@@ -16,8 +16,6 @@ A deployment of workflow management tool (Apache Airflow) that will automate an 
 
 Terraform is used to provision all pieces of the infrastructure:
 
-- Modules and variable-driven configuration to follow the DRY principle
-- Tightly scoped IAM policies for secure access control
 - S3 buckets configured with security and redundancy in mind:
     - **Server-side encryption** with AES256 to protect data-at-rest
     - **Versioning enabled** for recovery against accidental deletes or overwrites
@@ -25,7 +23,8 @@ Terraform is used to provision all pieces of the infrastructure:
     - **Cross-bucket replication** to a backup bucket with intelligent tiering for redundancy
     - **Audit logging stored** in a dedicated bucket for traceability
     - **Daily inventory reports** for visibility into stored objects and compliance
-
+- Tightly scoped IAM policies for secure access control
+- Modules and variable-driven configuration to follow the DRY principle
 <br>
 
 ## Architecture Diagram:
