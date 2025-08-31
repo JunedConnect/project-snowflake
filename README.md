@@ -19,12 +19,12 @@ Terraform is used to provision all pieces of the infrastructure:
 - Modules and variable-driven configuration to follow the DRY principle
 - Tightly scoped IAM policies for secure access control
 - S3 buckets configured with security and redundancy in mind:
-    - Server-side encryption with AES256 to protect data-at-rest
-    - Versioning enabled for recovery against accidental deletes or overwrites
-    - Strict public access blocking to prevent unauthorised access
-    - Cross-bucket replication to a backup bucket with intelligent tiering for redundancy
-    - Audit logging stored in a dedicated bucket for traceability
-    - Daily inventory reports for visibility into stored objects and compliance
+    - **Server-side encryption** with AES256 to protect data-at-rest
+    - **Versioning** enabled for recovery against accidental deletes or overwrites
+    - **Strict public access blocking** to prevent unauthorised access
+    - **Cross-bucket replication** to a backup bucket with intelligent tiering for redundancy
+    - **Audit logging stored** in a dedicated bucket for traceability
+    - **Daily inventory reports** for visibility into stored objects and compliance
 
 <br>
 
